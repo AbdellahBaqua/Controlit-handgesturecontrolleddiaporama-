@@ -304,9 +304,9 @@ Troubleshooting
 License
 -------
 
-[Include license information here]
+[Controlit,2025]
 
 Authors
 -------
 
-[Include author information here]
+[Hachimboua, Baqua Abdellah]
