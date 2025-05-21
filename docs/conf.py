@@ -6,9 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'controlit-gesturecontrolleddiaporama'
-copyright = '2025, baqua abdellah'
-author = 'baqua abdellah'
+project = 'Controlit'
+copyright = '2025, Hachimboua'
+author = 'Hachimboua'
+release = 'today'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
