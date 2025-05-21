@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Controlit'
-copyright = '2025, Hachimboua'
-author = 'Hachimboua'
+copyright = '2025, Controlit'
+author = 'Hachimboua Baqua_Abdellah'
 release = 'today'
 
 # -- General configuration ---------------------------------------------------
