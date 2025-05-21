@@ -1,1 +1,1 @@
-[View Documentation](https://AbdellahBaqua.github.io/handgesturecontrolleddiaporama-/)
+[![Documentation Status](https://controlit-handgesturecontrolleddiaporama.readthedocs.io/en/latest/index.html)]
