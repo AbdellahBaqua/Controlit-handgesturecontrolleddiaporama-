@@ -14,7 +14,8 @@ release = 'today'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon', 'sphinx.ext.viewcode']
+
 source_suffix = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
