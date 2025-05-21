@@ -8,14 +8,13 @@
 
 project = 'Controlit'
 copyright = '2025, Controlit'
-author = 'Hachimboua Baqua_Abdellah'
+author = 'Hachimboua BaquaAbdellah'
 release = 'today'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon', 'sphinx.ext.viewcode']
-
+extensions = ['myst_parser']
 source_suffix = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
