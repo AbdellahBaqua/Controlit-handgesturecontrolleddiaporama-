@@ -8,7 +8,6 @@ A Python-based computer vision system that uses hand gestures to control a face 
 
 Full documentation is available on Read the Docs:
 - [Latest Documentation](https://controlit-handgesturecontrolleddiaporama.readthedocs.io/en/latest/)
-- [Stable Version](https://controlit-handgesturecontrolleddiaporama.readthedocs.io/en/stable/)
 
 ## Features
 - Hand gesture recognition using MediaPipe
