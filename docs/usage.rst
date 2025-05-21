@@ -10,7 +10,7 @@ To start the application, open your terminal and run:
 
 .. code-block:: bash
 
-   python main.py
+   python app.py
 
 Make sure your webcam is connected and accessible.
 
