@@ -8,7 +8,7 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath(r'C:\Users\houci\Documents\ENSAM\3eme annee\S6\Computer Vision\hand-gesture-recognition-mediapipe-main'))
+sys.path.insert(0, os.path.abspath(r'C:\Users\Amine\Documents\GitHub\Controlit-handgesturecontrolleddiaporama'))
 
 
 project = 'Controlit'
