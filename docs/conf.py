@@ -12,8 +12,8 @@ sys.path.insert(0, os.path.abspath(r'C:\Users\Amine\Documents\GitHub\Controlit-h
 
 
 project = 'Controlit'
-copyright = '2025, hachim'
-author = 'hachim'
+copyright = '2025, Ensam '
+author = 'BaquaAbdellah & HachimBoua'
 release = 'today'
 
 # -- General configuration ---------------------------------------------------
