@@ -61,3 +61,4 @@ To run the application, execute this script directly from your terminal:
 .. code-block:: bash
 
    python gui_app.py
+
