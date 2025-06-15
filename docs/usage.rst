@@ -29,8 +29,8 @@ Controls and Gestures
 
 Currently supported gestures:
 
-- **Right Hand Raised** – Next slide / command.
-- **Left Hand Raised** – Previous slide / command.
+- **Pinch Gesture** – Next slide / command.
+- **Fist Gesture** –Diaporama mode.
 
 You can extend or customize these gestures in the source code.
 
