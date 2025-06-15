@@ -21,6 +21,7 @@ and execute interactions via predefined hand gestures.
    face_detection
    api_reference
    faq
+   Guiapp
 
 Indices and tables
 ==================
