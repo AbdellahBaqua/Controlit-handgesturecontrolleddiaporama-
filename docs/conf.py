@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Controlit'
-copyright = '2025, Controlit'
+copyright = '2025, ENSAM'
 author = 'Hachimboua BaquaAbdellah'
 release = 'today'
 
