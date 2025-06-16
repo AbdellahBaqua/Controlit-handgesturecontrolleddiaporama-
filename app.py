@@ -59,7 +59,7 @@ def execute_speech_action(recognized_text: str):
         return
     
     last_speech_action_time = current_time
-    print(f"🎤 VOICE COMMAND: '{keyword.upper()}' (from text: '{recognized_text}')")
+    print(f"VOICE COMMAND: '{keyword.upper()}' (from text: '{recognized_text}')")
     
     if keyword == 'next':
         pyautogui.press('right')
@@ -210,7 +210,7 @@ def main():
         prof_image = face_recognition.load_image_file(professor_image_path)
         prof_encoding = face_recognition.face_encodings(prof_image)[0]
     except Exception as e:
-        print(f"FATAL: Could not load professor image: {e}"); return
+        print(f" Could not load professor image: {e}"); return
 
     mp_pose = mp.solutions.pose
     mp_hands = mp.solutions.hands
@@ -223,7 +223,7 @@ def main():
         with open('model/keypoint_classifier/keypoint_classifier_label.csv', encoding='utf-8-sig') as f:
             keypoint_classifier_labels = [row[0] for row in csv.reader(f)]
     except Exception as e:
-        print(f"FATAL: Could not load gesture models: {e}"); return
+        print(f" Could not load gesture models: {e}"); return
 
     cvFpsCalc = CvFpsCalc(buffer_len=10)
     last_executed_time = 0
@@ -266,7 +266,7 @@ def main():
                     if recognizer.AcceptWaveform(bytes(audio_data)):
                         result = json.loads(recognizer.Result())
                         if result.get("text"):
-                            print(f"[SPEECH RAW] Vosk heard: \"{result['text']}\"")
+                            print(f"Vosk heard: \"{result['text']}\"")
                             execute_speech_action(result['text'])
                 
                 
