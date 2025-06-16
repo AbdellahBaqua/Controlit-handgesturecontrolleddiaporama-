@@ -44,14 +44,16 @@ These commands are always active when the system is in "TRACKING ACTIVE" mode.
 
    * - Gesture (Trained ID)
      - Action
-   * - **0** (e.g., Open Mouth)
+   * - **0** (e.g., Open Palm)
      - Activates "Speech Mode" for 5 seconds.
-   * - **1** (e.g., Five / Open Palm)
+   * - **1** (e.g., Fist)
      - Presses :kbd:`F5` (Typically starts a slideshow).
-   * - **2** (e.g., Fist)
-     - Presses :kbd:`Spacebar` (Typically advances a slide).
+   * - **2** (e.g., Peace Sign)
+     - Presses :kbd:`Spacebar` (Stops the slideshow).
    * - **3** (e.g., Pointing Left)
      - Presses the :kbd:`Left Arrow` key (Previous slide).
+   * - **4** (e.g., Pinch )
+     - Presses the :kbd:`Right Arrow` key (Next slide).
 
 
 Voice Commands

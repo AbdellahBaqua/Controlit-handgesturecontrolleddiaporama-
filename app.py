@@ -68,15 +68,11 @@ def execute_speech_action(recognized_text: str):
         pyautogui.press('left')
         print("[ACTION] Voice: Previous slide (←)")
     elif keyword == 'quit':
-        shutdown_app()
+        pyautogui.press('ESC')
     
     last_speech_gesture_time = current_time
 
-def shutdown_app():
-    global app_is_running
-    if app_is_running:
-        print("[INFO] Shutdown signal received. Exiting...")
-        app_is_running = False
+
 
 # --- Your Original Utility Functions ---
 def get_args():
