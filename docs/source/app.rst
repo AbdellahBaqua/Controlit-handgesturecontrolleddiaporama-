@@ -1,6 +1,6 @@
-==================================
-Professor Gesture & Speech Control
-==================================
+======================================
+Professor Gesture & Speech Control App
+======================================
 
 .. contents:: Table of Contents
 
@@ -48,7 +48,7 @@ Setup and Installation
     .. code-block:: text
 
         /your_project_folder/
-        |-- presentation_controller.py  (This script)
+        |-- app.py  (script)
         |-- professor.jpg
         |-- vosk-model-small-en-us-0.15/
         |   |-- (Vosk model files...)
@@ -78,7 +78,7 @@ Execute the script from your terminal:
 
 .. code-block:: bash
 
-    python presentation_controller.py
+    python aapp.py
 
 The application will start, open a window showing the webcam feed, and begin searching for the professor.
 
