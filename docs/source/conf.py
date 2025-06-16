@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.abspath(r'C:\Users\Amine\Documents\GitHub\Controlit-h
 
 
 project = 'Controlit'
-copyright = '2025, Ensam '
+copyright = '2025, Supervised by Mr.Masrour , Ensam '
 author = 'BaquaAbdellah & HachimBoua'
 release = 'today'
 

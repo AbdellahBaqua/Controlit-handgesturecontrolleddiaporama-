@@ -1,79 +1,147 @@
-========================
-Application Architecture
-========================
-
-This document provides a technical overview of the main application script, its architecture, and its core components.
+==================================
+Professor Gesture & Speech Control
+==================================
 
 .. contents:: Table of Contents
-   :local:
-   :depth: 2
 
-Architectural Overview
-----------------------
+Overview
+========
 
-The application is built using a **single-threaded architecture**. This design was deliberately chosen to resolve resource conflicts between the CPU-intensive video processing (for gesture recognition) and the real-time audio stream processing (for speech recognition).
+This application provides a robust, hands-free method for controlling presentations. It uses computer vision and speech recognition to interpret a presenter's commands.
 
-By running all tasks within a single main loop, we prevent thread starvation and ensure that both gesture and speech inputs are handled responsively, even at the cost of a minor reduction in maximum potential framerate.
+The system is designed to "lock on" to a specific person (the "professor") using facial recognition. Once the professor is identified, the application tracks their body pose to intelligently find and interpret hand gestures. A special gesture activates a voice control mode, allowing for vocal commands to navigate the presentation. This dual-modal approach ensures that the system only listens for commands from the designated presenter and only when they explicitly signal their intent.
 
-All application states are managed through a set of global variables.
+Key Features
+============
 
-Core Components
-===============
+* **Presenter-Specific Activation**: Uses facial recognition to identify a designated presenter and only begins tracking them, ignoring other people in the frame.
+* **Dynamic Region-of-Interest (ROI)**: After finding the presenter, it uses pose estimation to create a dynamic search area for hands, significantly improving performance and reducing false positives.
+* **Gesture-Based Control**: Recognizes a set of pre-trained hand gestures to perform actions such as starting the presentation, pausing/playing media, or moving to the previous slide.
+* **Voice Command Mode**: A specific hand gesture activates a temporary speech recognition mode, allowing the presenter to use voice commands like "next," "previous," and "quit."
+* **Real-time Debug View**: An optional overlay that visualizes the face detection box, pose skeleton, hand landmarks, and current operational state for easy troubleshooting.
+* **Data Logging Mode**: Includes functionality to capture and log new hand gesture data, allowing for easy expansion or customization of the gesture vocabulary.
 
-Global State Management
+Requirements
+============
+
+Hardware
+--------
+
+* A standard webcam.
+* A microphone recognized by your operating system.
+
+Software
+--------
+
+* Python 3.8+
+* The following Python libraries. You can install them via pip:
+
+    .. code-block:: bash
+
+        pip install opencv-python mediapipe numpy pyautogui sounddevice vosk face-recognition torch
+
+Setup and Installation
+======================
+
+1.  **Project Structure**: The script expects a specific directory layout for its models and assets. Ensure your project folder is organized as follows:
+
+    .. code-block:: text
+
+        /your_project_folder/
+        |-- presentation_controller.py  (This script)
+        |-- professor.jpg
+        |-- vosk-model-small-en-us-0.15/
+        |   |-- (Vosk model files...)
+        |-- model/
+        |   |-- keypoint_classifier/
+        |   |   |-- keypoint_classifier_weights.pth
+        |   |   |-- keypoint_classifier_label.csv
+        |   |   |-- keypoint.csv (This will be created if you log new gestures)
+
+2.  **Set Professor Image**:
+    Place a clear, front-facing photograph of the designated presenter in the root of the project directory and name it ``professor.jpg``.
+
+3.  **Download Vosk Speech Model**:
+    * Download the Vosk model for your language (the script is pre-configured for "vosk-model-small-en-us-0.15"). You can find models on the `Vosk models page <https://alphacephei.com/vosk/models>`_.
+    * Unzip the model and ensure the resulting folder is named ``vosk-model-small-en-us-0.15`` and is placed in the root of the project directory.
+
+4.  **Place Gesture Model**:
+    Ensure the pre-trained gesture classifier weights (``keypoint_classifier_weights.pth``) and the corresponding labels file (``keypoint_classifier_label.csv``) are located inside the ``model/keypoint_classifier/`` directory.
+
+Usage
+=====
+
+Running the Application
 -----------------------
 
-The application's state is controlled by a few key global variables:
+Execute the script from your terminal:
 
-* ``app_is_running``: A boolean flag that controls the main `while` loop. When set to `False` (by the ``shutdown_app()`` function), the application will cleanly exit.
-* ``is_speech_mode_active``: A boolean flag that determines if the system should process spoken words into commands. This is the primary "gatekeeper" for voice control.
-* ``last_speech_gesture_time``: A timestamp recording when the speech activation gesture was last seen. Used to automatically time out and deactivate speech mode after 5 seconds of inactivity.
-* ``last_speech_action_time``: A timestamp recording when the last successful voice command was executed. Used to enforce a cooldown period between voice commands.
+.. code-block:: bash
 
-The ``main()`` Function
---------------------
+    python presentation_controller.py
 
-The ``main()`` function is the heart of the application and orchestrates all operations. Its workflow is divided into three main phases:
+The application will start, open a window showing the webcam feed, and begin searching for the professor.
 
-1.  **Initialization**
-    
-    * Loads the ``Vosk`` speech recognition model.
-    * Parses command-line arguments.
-    * Initializes the camera capture with ``OpenCV``.
-    * Loads the ``face_recognition`` data from :file:`professor.jpg`.
-    * Initializes ``MediaPipe`` models for pose and hand tracking.
-    * Loads the custom gesture ``KeyPointClassifier`` model.
+Command-Line Arguments
+----------------------
 
-2.  **The Main Loop**
-    
-    * The primary `while app_is_running:` loop is wrapped within a ``sounddevice`` input stream context manager, ensuring the microphone is active.
-    * Inside the loop, the following occurs on every iteration:
+You can customize the camera settings using the following arguments:
 
-      * Keyboard input is checked for manual exit (:kbd:`q`) or debug mode toggling (:kbd:`d`).
-      * The speech mode timeout is checked and updated.
-      * A frame is read from the webcam.
-      * If ``is_speech_mode_active`` is true, a chunk of audio is read from the microphone stream and passed to the Vosk recognizer.
-      * The gesture recognition state machine is executed (searching for the professor, then tracking hands).
-      * The final image with debug overlays is displayed.
-      * A tiny ``time.sleep(0.001)`` is called to ensure the loop is "polite" and yields CPU time, which aids stability.
+* ``--device``: The integer ID for your camera device. Default is ``0``.
+* ``--width``: The capture width for the camera frame. Default is ``960``.
+* ``--height``: The capture height for the camera frame. Default is ``540``.
+* ``--use_static_image_mode``: A flag to indicate usage with static images instead of a live video stream.
+* ``--min_detection_confidence``: Minimum confidence value (``0.0`` to ``1.0``) for hand detection. Default is ``0.7``.
+* ``--min_tracking_confidence``: Minimum confidence value (``0.0`` to ``1.0``) for hand tracking. Default is ``0.5``.
 
-3.  **Cleanup**
-    
-    * After the loop exits, `cap.release()` and `cv.destroyAllWindows()` are called to free up system resources cleanly.
+Controls and Commands
+=====================
 
-Speech Handling Functions
--------------------------
+The system operates through a hierarchy of keyboard, gesture, and voice commands.
 
-These are standalone functions that manage voice command logic:
+Keyboard Controls
+-----------------
 
-* ``get_keyword(text)``: Takes the raw text recognized by Vosk and checks it against a dictionary of primary keywords (e.g., "next") and aliases (e.g., "forward"). It returns the standardized command if a match is found.
+These controls are active while the OpenCV window is in focus.
 
-* ``execute_speech_action(text)``: This function acts as the final "gatekeeper." It receives recognized text, but first checks if ``is_speech_mode_active`` is `True`. If it is, it finds the keyword, checks the command cooldown, and only then executes the corresponding ``pyautogui`` action.
+* **`ESC`** or **`q`**: Shuts down the application.
+* **`d`**: Toggles the debug view, which shows skeletons, tracking boxes, and status text.
+* **`k`**: Switches to "Logging Key Point" mode to record new gestures.
+* **`n`**: Switches back to "Normal" mode from logging mode.
+* **`0` - `9`**: When in logging mode, press a number to assign the current gesture to that class label in ``keypoint.csv``.
 
-Gesture Utility Functions
--------------------------
+Gesture Controls
+----------------
 
-The script contains numerous helper functions for processing video and gesture data.
+When the application is tracking the professor, it will look for the following hand gestures.
 
-* **``calc_*`` functions**: A group of functions like ``calc_bounding_rect()`` and ``calc_landmark_list()`` that perform mathematical calculations to process landmark data from MediaPipe into a usable format. ``pre_process_landmark()`` normalizes this data for the classifier.
-* **``draw_*`` functions**: A group of functions like ``draw_landmarks()`` and ``draw_info()`` that use OpenCV to draw visual feedback (landmarks, bounding boxes, status text) onto the camera frame for debug mode.
+.. note:: The specific gesture for each action depends on the trained ``keypoint_classifier_weights.pth`` model and the labels in ``keypoint_classifier_label.csv``. The following are common examples.
+
+* **Activate Speech Mode (ID 0)**: A specific gesture (e.g., "Thumbs Up") enables voice control for 5 seconds.
+* **Start Presentation (ID 1)**: A gesture (e.g., "Fist") sends an `F5` key press.
+* **Play/Pause (ID 2)**: A gesture (e.g., "Open Palm") sends a `spacebar` key press.
+* **Previous Slide (ID 3)**: A gesture (e.g., "Pointing Left") sends a `left arrow` key press.
+
+A cooldown period of 1.5 seconds prevents a single gesture from being triggered multiple times in rapid succession.
+
+Voice Controls
+--------------
+
+Voice control is only active for 5 seconds after being triggered by the corresponding gesture.
+
+* **`"next"`** or **`"forward"`** or **`"right"`**: Triggers a `right arrow` key press to advance to the next slide.
+* **`"previous"`** or **`"back"`** or **`"backward"`** or **`"left"`**: Triggers a `left arrow` key press to return to the previous slide.
+* **`"quit"`** or **`"exit"`** or **`"close"`**: Triggers an `ESC` key press to exit the presentation view.
+
+Operational Flow
+================
+
+The application follows a state-based logic to function efficiently.
+
+1.  **Searching Professor**: On startup, the system scans the entire camera frame at a reduced resolution to find a face that matches ``professor.jpg``. The status "INITIAL SEARCH" is shown.
+
+2.  **Tracking Professor**: Once the professor is found, the system switches to tracking mode. It uses the detected face location to define a large Region of Interest (ROI) around the professor's upper body. Pose estimation is then run *only within this ROI*, saving significant computational resources.
+
+3.  **Hand Detection**: The pose landmarks are used to pinpoint the location of the professor's wrist. A secondary, smaller ROI is created around the wrist to specifically search for hand gestures. This targeted approach ensures that only the professor's hand gestures are processed.
+
+4.  **Re-acquiring Professor**: If the system can no longer see the professor's pose landmarks within the tracking ROI (e.g., if the professor walks off-camera), it reverts to the full-frame "RE-ACQUIRING" search mode until the professor is found again.
