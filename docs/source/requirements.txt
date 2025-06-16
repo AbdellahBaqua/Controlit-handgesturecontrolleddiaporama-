@@ -7,3 +7,5 @@ Pillow
 opencv-python
 mediapipe
 pyautogui
+sphinx>=4.0
+sphinx_rtd_theme
