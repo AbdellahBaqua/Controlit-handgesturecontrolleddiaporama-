@@ -74,7 +74,7 @@ def execute_speech_action(recognized_text: str):
 
 
 
-# --- Your Original Utility Functions ---
+
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", type=int, default=0, help="Camera device ID (default: 0)")
@@ -269,7 +269,7 @@ def main():
                             print(f"[SPEECH RAW] Vosk heard: \"{result['text']}\"")
                             execute_speech_action(result['text'])
                 
-                # --- YOUR FULL GESTURE LOGIC IS PRESERVED HERE ---
+                
                 if current_mode in ['SEARCHING_PROFESSOR_INITIAL', 'REACQUIRING_PROFESSOR']:
                     status_text = "INITIAL SEARCH: Looking for Professor..." if current_mode == 'SEARCHING_PROFESSOR_INITIAL' else "RE-ACQUIRING: Looking for Professor..."
                     cv.putText(debug_image, status_text, (10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.8, (0, 165, 255), 2)
