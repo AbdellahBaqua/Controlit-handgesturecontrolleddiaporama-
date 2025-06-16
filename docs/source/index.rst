@@ -14,10 +14,11 @@ This site will guide you through the installation process and how to use the app
 
    installation
    usage
-   app.rst
+   app
 
 Indices and tables
 ==================
 
 
 * :ref:`search`
+
