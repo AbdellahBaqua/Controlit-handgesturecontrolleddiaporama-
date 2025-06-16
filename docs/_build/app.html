@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professor Gesture &amp; Speech Control App &mdash; Controlit today documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=9fdc9bb0"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Usage Guide" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Controlit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Professor Gesture &amp; Speech Control App</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-features">Key Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-arguments">Command-Line Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#controls-and-commands">Controls and Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keyboard-controls">Keyboard Controls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gesture-controls">Gesture Controls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#voice-controls">Voice Controls</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#operational-flow">Operational Flow</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Controlit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Professor Gesture &amp; Speech Control App</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="professor-gesture-speech-control-app">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Professor Gesture &amp; Speech Control App</a><a class="headerlink" href="#professor-gesture-speech-control-app" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#professor-gesture-speech-control-app" id="id1">Professor Gesture &amp; Speech Control App</a></p>
+<ul>
+<li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
+<li><p><a class="reference internal" href="#key-features" id="id3">Key Features</a></p>
+<ul>
+<li><p><a class="reference internal" href="#running-the-application" id="id4">Running the Application</a></p></li>
+<li><p><a class="reference internal" href="#command-line-arguments" id="id5">Command-Line Arguments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#controls-and-commands" id="id6">Controls and Commands</a></p>
+<ul>
+<li><p><a class="reference internal" href="#keyboard-controls" id="id7">Keyboard Controls</a></p></li>
+<li><p><a class="reference internal" href="#gesture-controls" id="id8">Gesture Controls</a></p></li>
+<li><p><a class="reference internal" href="#voice-controls" id="id9">Voice Controls</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#operational-flow" id="id10">Operational Flow</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>This application provides a robust, hands-free method for controlling presentations. It uses computer vision and speech recognition to interpret a presenter’s commands.</p>
+<p>The system is designed to “lock on” to a specific person (the “professor”) using facial recognition. Once the professor is identified, the application tracks their body pose to intelligently find and interpret hand gestures. A special gesture activates a voice control mode, allowing for vocal commands to navigate the presentation. This dual-modal approach ensures that the system only listens for commands from the designated presenter and only when they explicitly signal their intent.</p>
+</section>
+<section id="key-features">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Key Features</a><a class="headerlink" href="#key-features" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Presenter-Specific Activation</strong>: Uses facial recognition to identify a designated presenter and only begins tracking them, ignoring other people in the frame.</p></li>
+<li><p><strong>Dynamic Region-of-Interest (ROI)</strong>: After finding the presenter, it uses pose estimation to create a dynamic search area for hands, significantly improving performance and reducing false positives.</p></li>
+<li><p><strong>Gesture-Based Control</strong>: Recognizes a set of pre-trained hand gestures to perform actions such as starting the presentation, pausing/playing media, or moving to the previous slide.</p></li>
+<li><p><strong>Voice Command Mode</strong>: A specific hand gesture activates a temporary speech recognition mode, allowing the presenter to use voice commands like “next,” “previous,” and “quit.”</p></li>
+<li><p><strong>Real-time Debug View</strong>: An optional overlay that visualizes the face detection box, pose skeleton, hand landmarks, and current operational state for easy troubleshooting.</p></li>
+<li><p><strong>Data Logging Mode</strong>: Includes functionality to capture and log new hand gesture data, allowing for easy expansion or customization of the gesture vocabulary.</p></li>
+</ul>
+<section id="running-the-application">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Running the Application</a><a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h3>
+<p>Execute the script from your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>app.py
+</pre></div>
+</div>
+<p>The application will start, open a window showing the webcam feed, and begin searching for the professor.</p>
+</section>
+<section id="command-line-arguments">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Command-Line Arguments</a><a class="headerlink" href="#command-line-arguments" title="Permalink to this heading"></a></h3>
+<p>You can customize the camera settings using the following arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--device</span></code>: The integer ID for your camera device. Default is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--width</span></code>: The capture width for the camera frame. Default is <code class="docutils literal notranslate"><span class="pre">960</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--height</span></code>: The capture height for the camera frame. Default is <code class="docutils literal notranslate"><span class="pre">540</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--use_static_image_mode</span></code>: A flag to indicate usage with static images instead of a live video stream.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--min_detection_confidence</span></code>: Minimum confidence value (<code class="docutils literal notranslate"><span class="pre">0.0</span></code> to <code class="docutils literal notranslate"><span class="pre">1.0</span></code>) for hand detection. Default is <code class="docutils literal notranslate"><span class="pre">0.7</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--min_tracking_confidence</span></code>: Minimum confidence value (<code class="docutils literal notranslate"><span class="pre">0.0</span></code> to <code class="docutils literal notranslate"><span class="pre">1.0</span></code>) for hand tracking. Default is <code class="docutils literal notranslate"><span class="pre">0.5</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="controls-and-commands">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Controls and Commands</a><a class="headerlink" href="#controls-and-commands" title="Permalink to this heading"></a></h2>
+<p>The system operates through a hierarchy of keyboard, gesture, and voice commands.</p>
+<section id="keyboard-controls">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Keyboard Controls</a><a class="headerlink" href="#keyboard-controls" title="Permalink to this heading"></a></h3>
+<p>These controls are active while the OpenCV window is in focus.</p>
+<ul class="simple">
+<li><p><strong>`ESC`</strong> or <strong>`q`</strong>: Shuts down the application.</p></li>
+<li><p><strong>`d`</strong>: Toggles the debug view, which shows skeletons, tracking boxes, and status text.</p></li>
+<li><p><strong>`k`</strong>: Switches to “Logging Key Point” mode to record new gestures.</p></li>
+<li><p><strong>`n`</strong>: Switches back to “Normal” mode from logging mode.</p></li>
+<li><p><strong>`0` - `9`</strong>: When in logging mode, press a number to assign the current gesture to that class label in <code class="docutils literal notranslate"><span class="pre">keypoint.csv</span></code>.</p></li>
+</ul>
+</section>
+<section id="gesture-controls">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Gesture Controls</a><a class="headerlink" href="#gesture-controls" title="Permalink to this heading"></a></h3>
+<p>When the application is tracking the professor, it will look for the following hand gestures.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The specific gesture for each action depends on the trained <code class="docutils literal notranslate"><span class="pre">keypoint_classifier_weights.pth</span></code> model and the labels in <code class="docutils literal notranslate"><span class="pre">keypoint_classifier_label.csv</span></code>. The following are common examples.</p>
+</div>
+<ul class="simple">
+<li><p><strong>Activate Speech Mode (ID 0)</strong>: A specific gesture (e.g., “Thumbs Up”) enables voice control for 5 seconds.</p></li>
+<li><p><strong>Start Presentation (ID 1)</strong>: A gesture (e.g., “Fist”) sends an <cite>F5</cite> key press.</p></li>
+<li><p><strong>Play/Pause (ID 2)</strong>: A gesture (e.g., “Open Palm”) sends a <cite>spacebar</cite> key press.</p></li>
+<li><p><strong>Previous Slide (ID 3)</strong>: A gesture (e.g., “Pointing Left”) sends a <cite>left arrow</cite> key press.</p></li>
+</ul>
+<p>A cooldown period of 1.5 seconds prevents a single gesture from being triggered multiple times in rapid succession.</p>
+</section>
+<section id="voice-controls">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Voice Controls</a><a class="headerlink" href="#voice-controls" title="Permalink to this heading"></a></h3>
+<p>Voice control is only active for 5 seconds after being triggered by the corresponding gesture.</p>
+<ul class="simple">
+<li><p><strong>`”next”`</strong> or <strong>`”forward”`</strong> or <strong>`”right”`</strong>: Triggers a <cite>right arrow</cite> key press to advance to the next slide.</p></li>
+<li><p><strong>`”previous”`</strong> or <strong>`”back”`</strong> or <strong>`”backward”`</strong> or <strong>`”left”`</strong>: Triggers a <cite>left arrow</cite> key press to return to the previous slide.</p></li>
+<li><p><strong>`”quit”`</strong> or <strong>`”exit”`</strong> or <strong>`”close”`</strong>: Triggers an <cite>ESC</cite> key press to exit the presentation view.</p></li>
+</ul>
+</section>
+</section>
+<section id="operational-flow">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Operational Flow</a><a class="headerlink" href="#operational-flow" title="Permalink to this heading"></a></h2>
+<p>The application follows a state-based logic to function efficiently.</p>
+<ol class="arabic simple">
+<li><p><strong>Searching Professor</strong>: On startup, the system scans the entire camera frame at a reduced resolution to find a face that matches <code class="docutils literal notranslate"><span class="pre">professor.jpg</span></code>. The status “INITIAL SEARCH” is shown.</p></li>
+<li><p><strong>Tracking Professor</strong>: Once the professor is found, the system switches to tracking mode. It uses the detected face location to define a large Region of Interest (ROI) around the professor’s upper body. Pose estimation is then run <em>only within this ROI</em>, saving significant computational resources.</p></li>
+<li><p><strong>Hand Detection</strong>: The pose landmarks are used to pinpoint the location of the professor’s wrist. A secondary, smaller ROI is created around the wrist to specifically search for hand gestures. This targeted approach ensures that only the professor’s hand gestures are processed.</p></li>
+<li><p><strong>Re-acquiring Professor</strong>: If the system can no longer see the professor’s pose landmarks within the tracking ROI (e.g., if the professor walks off-camera), it reverts to the full-frame “RE-ACQUIRING” search mode until the professor is found again.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Usage Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BaquaAbdellah &amp; HachimBoua, Supervised by Mr.Masrour, ENSAM .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage Guide &mdash; Controlit today documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=9fdc9bb0"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Professor Gesture &amp; Speech Control App" href="app.html" />
+    <link rel="prev" title="Installation and Setup" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Controlit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-workflow">System Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gesture-commands">Gesture Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#voice-commands">Voice Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-controls">Additional Controls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.html">Professor Gesture &amp; Speech Control App</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Controlit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage-guide">
+<h1>Usage Guide<a class="headerlink" href="#usage-guide" title="Permalink to this heading"></a></h1>
+<p>This guide explains how to run the application and use its features.</p>
+<section id="running-the-application">
+<h2>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Open a terminal and navigate to your project’s root directory.</p></li>
+<li><p>If you are using a virtual environment, make sure it is activated.</p></li>
+<li><p>Run the main Python script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>app.py
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="system-workflow">
+<h2>System Workflow<a class="headerlink" href="#system-workflow" title="Permalink to this heading"></a></h2>
+<p>The application operates using a simple state machine:</p>
+<ol class="arabic simple">
+<li><p><strong>Authentication</strong>: When the app starts, the camera window will open. The presenter must look at the camera. The system will search for their face and match it against the one in <code class="file docutils literal notranslate"><span class="pre">professor.jpg</span></code>.</p></li>
+<li><p><strong>Tracking</strong>: Once the presenter is identified, the system switches to “TRACKING ACTIVE” mode. It will now follow the presenter’s pose and look for hand gestures.</p></li>
+<li><p><strong>Control</strong>: While tracking, the presenter can use hand gestures and voice commands to control their presentation.</p></li>
+</ol>
+<section id="commands">
+<h3>Commands<a class="headerlink" href="#commands" title="Permalink to this heading"></a></h3>
+<p>The system responds to both hand gestures and voice commands.</p>
+</section>
+</section>
+<section id="gesture-commands">
+<h2>Gesture Commands<a class="headerlink" href="#gesture-commands" title="Permalink to this heading"></a></h2>
+<p>These commands are always active when the system is in “TRACKING ACTIVE” mode.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Gesture (Trained ID)</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>0</strong> (e.g., Open Palm)</p></td>
+<td><p>Activates “Speech Mode” for 5 seconds.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1</strong> (e.g., Fist)</p></td>
+<td><p>Presses <kbd class="kbd docutils literal notranslate">F5</kbd> (Typically starts a slideshow).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2</strong> (e.g., Peace Sign)</p></td>
+<td><p>Presses <kbd class="kbd docutils literal notranslate">Spacebar</kbd> (Stops the slideshow).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3</strong> (e.g., Pointing Left)</p></td>
+<td><p>Presses the <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Left</kbd> <kbd class="kbd docutils literal notranslate">Arrow</kbd></kbd> key (Previous slide).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>4</strong> (e.g., Pinch )</p></td>
+<td><p>Presses the <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Right</kbd> <kbd class="kbd docutils literal notranslate">Arrow</kbd></kbd> key (Next slide).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="voice-commands">
+<h2>Voice Commands<a class="headerlink" href="#voice-commands" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To complement the gesture-based system, the application incorporates a voice command module powered by the <strong>Vosk</strong> offline speech recognition toolkit. This feature is not perpetually active; it is deliberately enabled for a five-second window upon performing a specific hand gesture. Once activated, a lightweight Natural Language Processing (NLP) layer parses the incoming audio for key commands. This NLP model performs keyword spotting, trained to recognize core actions like <code class="docutils literal notranslate"><span class="pre">next</span></code>, <code class="docutils literal notranslate"><span class="pre">previous</span></code>, and <code class="docutils literal notranslate"><span class="pre">quit</span></code>, along with their common aliases (e.g., <code class="docutils literal notranslate"><span class="pre">back</span></code>, <code class="docutils literal notranslate"><span class="pre">forward</span></code>, <code class="docutils literal notranslate"><span class="pre">exit</span></code>). This gesture-to-speech activation mechanism serves as a robust filter, ensuring that vocal commands are only processed when explicitly intended by the presenter.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Voice commands are <strong>only</strong> active after you have used the “Activate Speech Mode” gesture (ID 0). The on-screen status text will turn green to confirm. You have 5 seconds to speak a command before the mode times out.</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Spoken Keyword(s)</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">next</span></code>, <code class="docutils literal notranslate"><span class="pre">forward</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code></p></td>
+<td><p>Presses the <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Right</kbd> <kbd class="kbd docutils literal notranslate">Arrow</kbd></kbd> key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">previous</span></code>, <code class="docutils literal notranslate"><span class="pre">backward</span></code>, <code class="docutils literal notranslate"><span class="pre">back</span></code>, <code class="docutils literal notranslate"><span class="pre">left</span></code></p></td>
+<td><p>Presses the <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Left</kbd> <kbd class="kbd docutils literal notranslate">Arrow</kbd></kbd> key.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">quit</span></code>, <code class="docutils literal notranslate"><span class="pre">exit</span></code>, <code class="docutils literal notranslate"><span class="pre">close</span></code></p></td>
+<td><p>Shuts down the application.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="additional-controls">
+<h2>Additional Controls<a class="headerlink" href="#additional-controls" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Toggle Debug View</strong>: Press the <kbd class="kbd docutils literal notranslate">d</kbd> key to toggle the visual overlay of landmarks and tracking boxes.</p></li>
+<li><p><strong>Force Quit</strong>: Press <kbd class="kbd docutils literal notranslate">q</kbd> or <kbd class="kbd docutils literal notranslate">Esc</kbd> to immediately close the application.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation and Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="app.html" class="btn btn-neutral float-right" title="Professor Gesture &amp; Speech Control App" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BaquaAbdellah &amp; HachimBoua, Supervised by Mr.Masrour, ENSAM .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
