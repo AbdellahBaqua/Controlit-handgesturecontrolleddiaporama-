@@ -35,7 +35,8 @@ The ``main()`` Function
 
 The ``main()`` function is the heart of the application and orchestrates all operations. Its workflow is divided into three main phases:
 
-1.  **Initialization**:
+1.  **Initialization**
+    
     * Loads the ``Vosk`` speech recognition model.
     * Parses command-line arguments.
     * Initializes the camera capture with ``OpenCV``.
@@ -43,18 +44,21 @@ The ``main()`` function is the heart of the application and orchestrates all ope
     * Initializes ``MediaPipe`` models for pose and hand tracking.
     * Loads the custom gesture ``KeyPointClassifier`` model.
 
-2.  **The Main Loop**:
+2.  **The Main Loop**
+    
     * The primary `while app_is_running:` loop is wrapped within a ``sounddevice`` input stream context manager, ensuring the microphone is active.
     * Inside the loop, the following occurs on every iteration:
-        * Keyboard input is checked for manual exit (:kbd:`q`) or debug mode toggling (:kbd:`d`).
-        * The speech mode timeout is checked and updated.
-        * A frame is read from the webcam.
-        * If ``is_speech_mode_active`` is true, a chunk of audio is read from the microphone stream and passed to the Vosk recognizer.
-        * The gesture recognition state machine is executed (searching for the professor, then tracking hands).
-        * The final image with debug overlays is displayed.
-        * A tiny ``time.sleep(0.001)`` is called to ensure the loop is "polite" and yields CPU time, which aids stability.
 
-3.  **Cleanup**:
+      * Keyboard input is checked for manual exit (:kbd:`q`) or debug mode toggling (:kbd:`d`).
+      * The speech mode timeout is checked and updated.
+      * A frame is read from the webcam.
+      * If ``is_speech_mode_active`` is true, a chunk of audio is read from the microphone stream and passed to the Vosk recognizer.
+      * The gesture recognition state machine is executed (searching for the professor, then tracking hands).
+      * The final image with debug overlays is displayed.
+      * A tiny ``time.sleep(0.001)`` is called to ensure the loop is "polite" and yields CPU time, which aids stability.
+
+3.  **Cleanup**
+    
     * After the loop exits, `cap.release()` and `cv.destroyAllWindows()` are called to free up system resources cleanly.
 
 Speech Handling Functions
