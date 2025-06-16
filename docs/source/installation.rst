@@ -1,90 +1,81 @@
-Installation
-============
+======================
+Installation and Setup
+======================
 
-This guide will help you set up the environment to run the Hand Gesture Controlled Face Recognition System.
+Follow these steps to set up the project environment on your local machine.
 
-Requirements
-------------
+Prerequisites
+-------------
 
-Before running the project, ensure you have the following installed:
+* Python 3.8 or newer.
+* A webcam connected to your computer.
+* A microphone connected and configured as the default input device.
 
-- Python 3.8+
-- pip (Python package installer)
-- Git (optional, to clone the repository)
+Setup Steps
+-----------
 
-Dependencies
-------------
+#. **Get the Code**
 
-The project uses the following libraries:
+   It is assumed you have the project code in a directory on your computer.
 
-- `opencv-python` – for video capture and image processing
-- `face_recognition` – for facial recognition
-- `mediapipe` – for hand gesture detection
-- `numpy` – for array and matrix operations
-- `dlib` – used by face_recognition internally (requires CMake and build tools)
-- `imutils` – image utilities for OpenCV
+#. **Create a Virtual Environment (Recommended)**
 
-Installation Steps
-------------------
-
-1. **Clone the Repository (Optional)**
-
-   If you haven't already:
+   Navigate to your project's root directory in your terminal and create a Python virtual environment.
 
    .. code-block:: bash
 
-      git clone https://github.com/yourusername/yourproject.git
-      cd yourproject
+      # On macOS/Linux
+      python3 -m venv venv
+      source venv/bin/activate
 
-2. **Set Up a Virtual Environment (Recommended)**
-
-   .. code-block:: bash
-
+      # On Windows
       python -m venv venv
-      source venv/bin/activate  # On Windows: venv\Scripts\activate
+      venv\Scripts\activate
 
-3. **Install Required Packages**
+#. **Install Python Dependencies**
 
-   .. code-block:: bash
-
-      pip install -r requirements.txt
-
-   If you don’t have a `requirements.txt`, install manually:
+   Install all required Python packages using pip.
 
    .. code-block:: bash
 
-      pip install opencv-python face_recognition mediapipe numpy imutils
+      pip install opencv-python mediapipe face_recognition pyautogui numpy torch sounddevice vosk
 
-   **Note:** Installing `face_recognition` may require `cmake`, `dlib`, and build tools:
+#. **Download the Vosk Speech Model**
 
-   .. code-block:: bash
+   The system requires a speech model to function. Download the recommended small English model.
 
-      pip install cmake
-      pip install dlib
+   1. Go to the `Vosk Models Page <https://alphacephei.com/vosk/models>`_.
+   2. Download the model named **vosk-model-small-en-us-0.15**.
+   3. Unzip the downloaded file.
+   4. Move the resulting ``vosk-model-small-en-us-0.15`` folder into the root of your project directory.
 
-   On Linux, you may need:
+#. **Set Up Project-Specific Files**
 
-   .. code-block:: bash
+   The following files must be present in your project directory for the application to run:
 
-      sudo apt-get install build-essential cmake
-      sudo apt-get install libboost-all-dev
+   * **`professor.jpg`**: A clear photo of the presenter's face, located in the project root.
+   * **`model/keypoint_classifier/`**: This directory must contain your trained gesture model (`keypoint_classifier_weights.pth`) and its labels (`keypoint_classifier_label.csv`).
 
-4. **Test the Installation**
+Required File Structure
+-----------------------
 
-   Run the main script to ensure the webcam opens and modules work:
+After setup, your project folder should look like this:
 
-   .. code-block:: bash
+.. code-block:: text
 
-      python main.py
+    your-project-folder/
+    │
+    ├── your_main_script.py
+    ├── professor.jpg
+    │
+    ├── vosk-model-small-en-us-0.15/
+    │   ├── am/
+    │   ├── conf/
+    │   └── ... (other model files)
+    │
+    └── model/
+        └── keypoint_classifier/
+            ├── keypoint_classifier_weights.pth
+            └── keypoint_classifier_label.csv
 
-Troubleshooting
----------------
-
-- If `face_recognition` fails to install, make sure you have a C++ compiler and CMake installed.
-- On Windows, install [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
-- Make sure your webcam is connected and not being used by another app.
-
-Next Steps
-----------
-
-Continue to :doc:`usage` to learn how to interact with the system using hand gestures.
+You are now ready to run the application.
