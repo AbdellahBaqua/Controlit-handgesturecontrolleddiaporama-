@@ -14,9 +14,11 @@ This site will guide you through the installation process and how to use the app
 
    installation
    usage
-
+   app
+.. include:: app.rst
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`search`
+.. include:: app.rst
