@@ -1,5 +1,3 @@
-
-
 import os
 import sys
 sys.path.insert(0, os.path.abspath(r'C:\Users\Amine\Documents\GitHub\Controlit-handgesturecontrolleddiaporama'))

@@ -210,7 +210,7 @@ def main():
         prof_image = face_recognition.load_image_file(professor_image_path)
         prof_encoding = face_recognition.face_encodings(prof_image)[0]
     except Exception as e:
-        print(f" Could not load professor image: {e}"); return
+        print(f"FATAL: Could not load professor image: {e}"); return
 
     mp_pose = mp.solutions.pose
     mp_hands = mp.solutions.hands
@@ -269,7 +269,7 @@ def main():
                             print(f"[SPEECH RAW] Vosk heard: \"{result['text']}\"")
                             execute_speech_action(result['text'])
                 
-                # gestures
+                # --- YOUR FULL GESTURE LOGIC IS PRESERVED HERE ---
                 if current_mode in ['SEARCHING_PROFESSOR_INITIAL', 'REACQUIRING_PROFESSOR']:
                     status_text = "INITIAL SEARCH: Looking for Professor..." if current_mode == 'SEARCHING_PROFESSOR_INITIAL' else "RE-ACQUIRING: Looking for Professor..."
                     cv.putText(debug_image, status_text, (10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.8, (0, 165, 255), 2)
@@ -361,6 +361,9 @@ def main():
                                         elif hand_sign_id == 3:
                                             pyautogui.press("left")
                                             print("[ACTION] Sent 'left'")
+                                        elif hand_sign_id == 4:
+                                            pyautogui.press("ESC")
+                                            print("[ACTION] Sent 'ESC'")
                                         last_executed_time = current_time
                                         last_executed_gesture = hand_sign_id
                                     
