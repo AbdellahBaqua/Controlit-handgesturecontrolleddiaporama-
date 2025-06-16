@@ -13,7 +13,7 @@ Running the Application
 
     .. code-block:: bash
 
-        python your_main_script_name.py
+        python app.py
 
 
 System Workflow
@@ -56,9 +56,12 @@ These commands are always active when the system is in "TRACKING ACTIVE" mode.
      - Presses the :kbd:`Right Arrow` key (Next slide).
 
 
+
+
 Voice Commands
 --------------
-
+.. note::
+  To complement the gesture-based system, the application incorporates a voice command module powered by the **Vosk** offline speech recognition toolkit. This feature is not perpetually active; it is deliberately enabled for a five-second window upon performing a specific hand gesture. Once activated, a lightweight Natural Language Processing (NLP) layer parses the incoming audio for key commands. This NLP model performs keyword spotting, trained to recognize core actions like ``next``, ``previous``, and ``quit``, along with their common aliases (e.g., ``back``, ``forward``, ``exit``). This gesture-to-speech activation mechanism serves as a robust filter, ensuring that vocal commands are only processed when explicitly intended by the presenter.
 .. note::
    Voice commands are **only** active after you have used the "Activate Speech Mode" gesture (ID 0). The on-screen status text will turn green to confirm. You have 5 seconds to speak a command before the mode times out.
 
