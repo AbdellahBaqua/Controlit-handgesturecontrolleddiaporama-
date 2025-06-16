@@ -21,55 +21,6 @@ Key Features
 * **Real-time Debug View**: An optional overlay that visualizes the face detection box, pose skeleton, hand landmarks, and current operational state for easy troubleshooting.
 * **Data Logging Mode**: Includes functionality to capture and log new hand gesture data, allowing for easy expansion or customization of the gesture vocabulary.
 
-Requirements
-============
-
-Hardware
---------
-
-* A standard webcam.
-* A microphone recognized by your operating system.
-
-Software
---------
-
-* Python 3.8+
-* The following Python libraries. You can install them via pip:
-
-    .. code-block:: bash
-
-        pip install opencv-python mediapipe numpy pyautogui sounddevice vosk face-recognition torch
-
-Setup and Installation
-======================
-
-1.  **Project Structure**: The script expects a specific directory layout for its models and assets. Ensure your project folder is organized as follows:
-
-    .. code-block:: text
-
-        /your_project_folder/
-        |-- app.py  (script)
-        |-- professor.jpg
-        |-- vosk-model-small-en-us-0.15/
-        |   |-- (Vosk model files...)
-        |-- model/
-        |   |-- keypoint_classifier/
-        |   |   |-- keypoint_classifier_weights.pth
-        |   |   |-- keypoint_classifier_label.csv
-        |   |   |-- keypoint.csv (This will be created if you log new gestures)
-
-2.  **Set Professor Image**:
-    Place a clear, front-facing photograph of the designated presenter in the root of the project directory and name it ``professor.jpg``.
-
-3.  **Download Vosk Speech Model**:
-    * Download the Vosk model for your language (the script is pre-configured for "vosk-model-small-en-us-0.15"). You can find models on the `Vosk models page <https://alphacephei.com/vosk/models>`_.
-    * Unzip the model and ensure the resulting folder is named ``vosk-model-small-en-us-0.15`` and is placed in the root of the project directory.
-
-4.  **Place Gesture Model**:
-    Ensure the pre-trained gesture classifier weights (``keypoint_classifier_weights.pth``) and the corresponding labels file (``keypoint_classifier_label.csv``) are located inside the ``model/keypoint_classifier/`` directory.
-
-Usage
-=====
 
 Running the Application
 -----------------------
