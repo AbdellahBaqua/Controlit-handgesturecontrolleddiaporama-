@@ -182,17 +182,17 @@ def main():
 
     # --- INITIALIZATION ---
     try:
-        print("[INFO] Initializing Vosk Model...")
+        print(" Initializing Vosk Model...")
         model_path = "vosk-model-small-en-us-0.15"
         if not os.path.exists(model_path): raise RuntimeError(f"Vosk model not found at '{model_path}'.")
         model = vosk.Model(model_path)
         recognizer = vosk.KaldiRecognizer(model, 16000)
-        print("[INFO] Vosk Model Initialized.")
+        print(" Vosk Model Initialized.")
     except Exception as e:
-        print(f"FATAL: Could not start Vosk: {e}"); return
+        print(f" Could not start Vosk: {e}"); return
 
     args = get_args()
-    # FIX: Restore the definitions for cap_width and cap_height right after parsing args
+    
     cap_device = args.device
     cap_width = args.width
     cap_height = args.height
@@ -210,7 +210,7 @@ def main():
         prof_image = face_recognition.load_image_file(professor_image_path)
         prof_encoding = face_recognition.face_encodings(prof_image)[0]
     except Exception as e:
-        print(f"FATAL: Could not load professor image: {e}"); return
+        print(f" Could not load professor image: {e}"); return
 
     mp_pose = mp.solutions.pose
     mp_hands = mp.solutions.hands
@@ -269,7 +269,7 @@ def main():
                             print(f"[SPEECH RAW] Vosk heard: \"{result['text']}\"")
                             execute_speech_action(result['text'])
                 
-                # --- YOUR FULL GESTURE LOGIC IS PRESERVED HERE ---
+                # gestures
                 if current_mode in ['SEARCHING_PROFESSOR_INITIAL', 'REACQUIRING_PROFESSOR']:
                     status_text = "INITIAL SEARCH: Looking for Professor..." if current_mode == 'SEARCHING_PROFESSOR_INITIAL' else "RE-ACQUIRING: Looking for Professor..."
                     cv.putText(debug_image, status_text, (10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.8, (0, 165, 255), 2)

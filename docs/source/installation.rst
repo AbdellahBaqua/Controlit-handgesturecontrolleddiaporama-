@@ -65,7 +65,7 @@ After setup, your project folder should look like this:
 
     your-project-folder/
     │
-    ├── your_main_script.py
+    ├── app.py
     ├── professor.jpg
     │
     ├── vosk-model-small-en-us-0.15/

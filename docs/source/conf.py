@@ -1,10 +1,4 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 import os
 import sys
@@ -12,16 +6,16 @@ sys.path.insert(0, os.path.abspath(r'C:\Users\Amine\Documents\GitHub\Controlit-h
 
 
 project = 'Controlit'
-copyright = '2025, Supervised by Mr.Masrour , Ensam '
+copyright = '2025, BaquaAbdellah & HachimBoua, Supervised by Mr.Masrour, ENSAM '
 author = 'BaquaAbdellah & HachimBoua'
 release = 'today'
 
-# -- General configuration ---------------------------------------------------
+
 
 extensions = []
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-# -- Options for HTML output -------------------------------------------------
-html_theme = 'sphinx_rtd_theme' # This is where you set the theme!
+
+html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']

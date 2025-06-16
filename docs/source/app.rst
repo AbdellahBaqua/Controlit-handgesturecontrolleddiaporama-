@@ -78,7 +78,7 @@ Execute the script from your terminal:
 
 .. code-block:: bash
 
-    python aapp.py
+    python app.py
 
 The application will start, open a window showing the webcam feed, and begin searching for the professor.
 
