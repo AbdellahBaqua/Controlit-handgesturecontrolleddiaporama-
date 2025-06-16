@@ -1,0 +1,9 @@
+numpy
+torch
+pytorch-lightning
+scikit-learn
+customtkinter
+Pillow
+opencv-python
+mediapipe
+pyautogui
